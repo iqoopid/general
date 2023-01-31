@@ -1,24 +1,23 @@
 import RPi.GPIO as GPIO
 import time
 
-# Pins for Motor Driver Inputs
+# Pins for Motor Driver Inputs 
 Motor1A = 3
 Motor1B = 5
 #set GPIO Pins
 GPIO_TRIGGER = 19
 GPIO_ECHO = 12
 
-GPIO.setwarnings(False)
-#GPIO Mode (BOARD / BCM)
-GPIO.setmode(GPIO.BOARD)
-GPIO.setup(Motor1A,GPIO.OUT)  # All pins as Outputs
-GPIO.setup(Motor1B,GPIO.OUT)
-GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
-GPIO.setup(GPIO_ECHO,GPIO.IN)
-GPIO.output(GPIO_TRIGGER, GPIO.LOW)
 
 
-def distance():
+def distance(Motor1A, Motor1B, GPIO_TRIGGER, GPIO_ECHO):
+    GPIO.setwarnings(False)
+    #GPIO Mode (BOARD / BCM)
+    GPIO.setmode(GPIO.BOARD)              # GPIO Numbering
+    GPIO.setup(Motor1A,GPIO.OUT)  # All pins as Outputs
+    GPIO.setup(Motor1B,GPIO.OUT)
+    GPIO.setup(GPIO_TRIGGER,GPIO.OUT)
+    GPIO.setup(GPIO_ECHO,GPIO.IN)
     # set Trigger to HIGH
     GPIO.output(GPIO_TRIGGER, True)
  
@@ -48,7 +47,7 @@ def distance():
         stop()
     print ("Measured Distance = %.1f cm" % distance)
 
-def run():
+def run(Motor1A, Motor1B):
     # Run Motor
     GPIO.output(Motor1A,GPIO.LOW)
     GPIO.output(Motor1B,GPIO.HIGH)
@@ -56,10 +55,10 @@ def run():
     time.sleep(0.1)
     # print("Running: GPIO_ECHO: ", GPIO_ECHO)
     #sleep(1)
-   
+    
 
 
-def stop():
+def stop(Motor1A, Motor1B):
     # Stop Motor
     GPIO.output(Motor1A,GPIO.LOW)
     GPIO.output(Motor1B,GPIO.LOW)
