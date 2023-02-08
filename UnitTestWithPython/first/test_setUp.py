@@ -21,5 +21,6 @@ class TestCalculations(unittest.TestCase):
     def test_remainder(self):
         self.assertEqual(self.calculation.get_remainder(), 0, 'The remainder is wrong.')
 
+
 if __name__ == '__main__':
     unittest.main()
