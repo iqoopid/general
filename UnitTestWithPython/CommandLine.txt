@@ -1,0 +1,6 @@
+//CLI command to test different test modules at once:
+python3 -m unittest test test+setUp test+setUpClass not+a+test
+
+//To run tests with more detail (higher verbosity) by passing in the -v flag:
+python3 -m unittest -v test test+setUp test+setUpClass not+a+test
+python3 -m unittest -v
