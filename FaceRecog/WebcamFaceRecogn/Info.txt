@@ -1,0 +1,7 @@
+Reference: https://github.com/thecodacus/Face-Recognition
+
+python3 -m pip install -U autopep8
+
+for using PIL, install pillow library with "pip install pillow"
+
+pip install opencv-contrib-python
