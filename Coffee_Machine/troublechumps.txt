@@ -1,0 +1,5 @@
+
+DS18b20 temperature sensor not listed in "/sys/bus/w1/devices"
+https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing?view=all
+sudo at install raspi-config
+sudo raspi-config

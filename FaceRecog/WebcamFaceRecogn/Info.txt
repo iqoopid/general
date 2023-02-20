@@ -1,4 +1,6 @@
-Reference: https://github.com/thecodacus/Face-Recognition
+REFERENCE: 
+https://towardsdatascience.com/real-time-face-recognition-an-end-to-end-project-b738bb0f7348
+https://github.com/thecodacus/Face-Recognition
 
 python3 -m pip install -U autopep8
 

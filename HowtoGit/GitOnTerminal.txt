@@ -1,0 +1,23 @@
+TO INSTALL GIT AND LOGIN TO GITHUB:
+sudo apt  install gh
+sudo apt install git
+git config --global user.email "you@example.com"
+git config --global user.name "Your Name"
+gh auth login
+
+
+TO CREATE A NEW REPOSITORY:
+cd repo_DIR
+git init -b <branch name>
+gh repo create
+
+
+TO CLONE A REPOSITORY:
+gh repo clone iqoopid/HowtoGit
+cd ./HowtoGit
+
+
+EDIT OR CREATE CODE:
+git init -b <branch name>
+git add . && git commit -m "type any messages here"
+git push origin <branch name>

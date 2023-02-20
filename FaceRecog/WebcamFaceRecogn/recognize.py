@@ -5,7 +5,7 @@ Real Time Face Recogition
 
 
 import cv2
-
+# import attendance
 
 recognizer = cv2.face.LBPHFaceRecognizer_create()
 recognizer.read('trainer/trainer.yml')
@@ -18,7 +18,7 @@ font = cv2.FONT_HERSHEY_DUPLEX
 id = 0
 
 # names related to ids: example ==> : id=1,  etc
-names = ['none', 'Ciril', 'Vishnu', 'Ilza', 'Z', 'W'] 
+names = ['Ciril', 'Vishnu', 'Manohar', 'Abin'] 
 
 # Initialize and start realtime video capture
 cam = cv2.VideoCapture(0)
@@ -31,14 +31,14 @@ minH = 0.1*cam.get(4)
 
 while True:
 
-    ret, img =cam.read()
+    ret, img = cam.read()
     # img = cv2.flip(img, -1) # Flip vertically
-
+    
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
 
     faces = faceCascade.detectMultiScale( 
         gray,
-        scaleFactor = 1.2,
+        scaleFactor = 1.1, # scaleFactor is the factor by which the image is resized at each scale. A value of 1.2 means that the image is scaled by 20% at each step.
         minNeighbors = 5,
         minSize = (int(minW), int(minH)),
        )
@@ -47,26 +47,39 @@ while True:
 
         cv2.rectangle(img, (x,y), (x+w,y+h), (0,255,0), 2)
 
+        # The recognizer.predict (), will take as a parameter a captured portion 
+        # of the face to be analyzed and will return its probable owner, indicating 
+        # its id and how much confidence the recognizer is in relation with this match.
         id, confidence = recognizer.predict(gray[y:y+h,x:x+w])
 
         # Check if confidence is less than 100 ==> "0" is perfect match 
         if (confidence < 100):
-            id = names[id]
+            Id = names[id-1]
+            confidence = confidence - 20
             confidence = "  {0}%".format(round(100 - confidence))
         else:
-            id = "unknown"
+            Id = "Unknown"
             confidence = "  {0}%".format(round(100 - confidence))
         
-        cv2.putText(img, str(id), (x+5,y-5), font, 1, (0,0,0), 2)
+        cv2.putText(img, str(Id), (x+5,y-5), font, 1, (0,0,0), 2)
         cv2.putText(img, str(confidence), (x+5,y+h-5), font, 1, (255,255,0), 1)  
-    
-    cv2.imshow('Face Recognition',img) 
+        
+        # attendance.record(id, Id)
 
-    k = cv2.waitKey(10) & 0xff # Press 'ESC' for exiting video
-    if k == 27:
+    cv2.imshow('Face Recognition',img)
+
+   
+
+    # waitKey() method will show the image for 10 milliseconds 
+    # before it automatically closes.
+    # The & 0xff is a bitwise AND operation that extracts 
+    # the least significant 8 bits of the result, 
+    # effectively masking all the other bits.
+    k = cv2.waitKey(10) & 0xff 
+    if k == 27: # Press 'ESC' for exiting video
         break
 
-# Do a bit of cleanup
-print("\n [INFO] Exiting Program and cleanup stuff")
+# Do cleanup
+print("\n [INFO] Exiting Program")
 cam.release()
 cv2.destroyAllWindows()

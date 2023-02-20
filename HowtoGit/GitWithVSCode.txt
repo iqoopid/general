@@ -1,0 +1,32 @@
+Download Git from:
+https://git-scm.com/downloads
+
+
+HOW TO COMMIT TO A REPOSITORY:
+Shift + Ctrl + P
+Rename branch if required
+Go to Source Control
+Select Repository from "SOURCE CONTROL REPOSITORIES"
+Select the "+" mark in Changes.
+Add a message and click the tick mark [Commit]
+
+
+HOW TO CREATE A NEW BRANCH:
+Shift + Ctrl + P
+Create branch
+Enter branch name
+
+
+HOW TO COMPARE TWO VERSIONS OF THE FILE:
+To compare the differences between files, click on the file in "SOURCE CONTROL" section.
+
+
+HOW TO CLONE A REPOSITORY:
+Go to the repository on GitHub.
+Click on "Code"
+Copy the URL
+Shift + Ctrl + P
+search for clone
+Select "Git: Clone"
+Paste the URL
+Select the location, to which you want to clone the repository.

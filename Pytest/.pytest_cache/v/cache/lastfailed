@@ -1,0 +1,5 @@
+{
+  "test_class.py::TestClassDemoInstance::test_two": true,
+  "test_set.py::test_set_comparison": true,
+  "exe1_test.py::testsquare": true
+}

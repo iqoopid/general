@@ -11,21 +11,23 @@ import os
 # Path for face image database
 path = 'dataset'
 
-recognizer = cv2.face.LBPHFaceRecognizer_create()
+recognizer = cv2.face.LBPHFaceRecognizer_create() # function for creating a face recognition model 
+# using the Local Binary Patterns Histograms (LBPH) algorithm.
 detector = cv2.CascadeClassifier("haarcascade_frontalface_default.xml");
 
 # function to get the images and label data
 def getImagesAndLabels(path):
 
-    imagePaths = [os.path.join(path,f) for f in os.listdir(path)]     
+    imagePaths = [os.path.join(path,f) for f in os.listdir(path)]
     faceSamples=[]
     ids = []
 
     for imagePath in imagePaths:
 
         PIL_img = Image.open(imagePath).convert('L') # convert it to grayscale
-        img_numpy = np.array(PIL_img,'uint8')
-
+        img_numpy = np.array(PIL_img,'uint8') # Python statement that converts an image 
+        # in PIL (Python Imaging Library) format to a NumPy array with data type 'uint8' (unsigned 8-bit integer).
+        # print(img_numpy)
         id = int(os.path.split(imagePath)[-1].split(".")[1])
         faces = detector.detectMultiScale(img_numpy)
 
@@ -37,6 +39,8 @@ def getImagesAndLabels(path):
 
 print ("\n [INFO] Training faces. It will take a few seconds. Wait ...")
 faces,ids = getImagesAndLabels(path)
+# print(faces)
+# print(ids)
 recognizer.train(faces, np.array(ids))
 
 # Save the model into trainer/trainer.yml

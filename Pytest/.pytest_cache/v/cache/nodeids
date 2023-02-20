@@ -1,0 +1,11 @@
+[
+  "exe1_test.py::test_sqrt",
+  "exe1_test.py::testsquare",
+  "test_class.py::TestClassDemoInstance::test_one",
+  "test_class.py::TestClassDemoInstance::test_two",
+  "test_except.py::test_mytest",
+  "test_exercise.py::test_mytest",
+  "test_regex.py::test_match",
+  "test_set.py::test_set_comparison",
+  "test_tmp_path.py::test_needsfiles"
+]
