@@ -4,4 +4,12 @@ sudo apt-get update
 sudo apt-get install google-chrome-stable
 
 # IN CASE OF ERROR: "Unable to locate package google-chrome-stable"
-#   Confirm the Ubuntu system is 64-bit
+# Confirm the Ubuntu system is 64-bit
+
+
+
+# sudo apt-get install libxss1 libappindicator1 libindicator7
+# wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+# sudo apt install ./google-chrome*.deb
+# If not installed:
+# sudo apt-get install -f
