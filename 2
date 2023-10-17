@@ -1,0 +1,268 @@
+guy@thinkpad:~/Documents/Docker/Jenkins$ ps -ef | grep mdm
+postgres    1771     938  0 Oct04 ?        00:00:00 postgres: 14/main: hmdm hmdm 127.0.0.1(40614) idle
+postgres    1778     938  0 Oct04 ?        00:00:00 postgres: 14/main: hmdm hmdm 127.0.0.1(40624) idle
+postgres    1779     938  0 Oct04 ?        00:00:00 postgres: 14/main: hmdm hmdm 127.0.0.1(40628) idle
+guy       116804  116752  0 Oct09 ?        00:00:00 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.autopep8-2023.6.0/bundled/tool/lsp_server.py
+guy       116805  116752  0 Oct09 ?        00:00:01 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.isort-2023.10.1/bundled/tool/lsp_server.py
+guy       116806  116752  0 Oct09 ?        00:00:08 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.pylint-2023.8.0/bundled/tool/lsp_server.py
+guy       203582  203573  0 11:04 pts/12   00:00:00 grep --color=auto mdm
+guy@thinkpad:~/Documents/Docker/Jenkins$ ps -ef | grep 0.0.0.0:8080
+guy       203598  203573  0 11:05 pts/12   00:00:00 grep --color=auto 0.0.0.0:8080
+guy@thinkpad:~/Documents/Docker/Jenkins$ ps -ef | grep 8080
+guy       203601  203573  0 11:05 pts/12   00:00:00 grep --color=auto 8080
+guy@thinkpad:~/Documents/Docker/Jenkins$ kill -9 1771 1778 1779
+bash: kill: (1771) - Operation not permitted
+bash: kill: (1778) - Operation not permitted
+bash: kill: (1779) - Operation not permitted
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo kill -9 1771 1778 1779
+[sudo] password for guy: 
+guy@thinkpad:~/Documents/Docker/Jenkins$ ps -ef | grep mdm
+guy       116804  116752  0 Oct09 ?        00:00:00 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.autopep8-2023.6.0/bundled/tool/lsp_server.py
+guy       116805  116752  0 Oct09 ?        00:00:01 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.isort-2023.10.1/bundled/tool/lsp_server.py
+guy       116806  116752  0 Oct09 ?        00:00:08 /home/guy/Documents/GitHub-probeplus/mdm_bout/Expatriation/env/bin/python3.10 /home/guy/.vscode/extensions/ms-python.pylint-2023.8.0/bundled/tool/lsp_server.py
+guy       203623  203573  0 11:06 pts/12   00:00:00 grep --color=auto mdm
+guy@thinkpad:~/Documents/Docker/Jenkins$ cd /var/lib/tomcat8/webapps
+bash: cd: /var/lib/tomcat8/webapps: No such file or directory
+guy@thinkpad:~/Documents/Docker/Jenkins$ cd /var/lib/tomcat9/
+guy@thinkpad:/var/lib/tomcat9$ ll
+total 24
+drwxr-xr-x  6 root   root   4096 Oct  4 13:01 ./
+drwxr-xr-x 84 root   root   4096 Oct 10 14:11 ../
+lrwxrwxrwx  1 root   root     12 Jul 21  2022 conf -> /etc/tomcat9/
+drwxr-xr-x  2 tomcat tomcat 4096 Jul 21  2022 lib/
+lrwxrwxrwx  1 root   root     17 Jul 21  2022 logs -> ../../log/tomcat9/
+drwxr-xr-x  2 root   root   4096 Oct  4 13:01 policy/
+drwxr-xr-x  2 tomcat tomcat 4096 Feb 22  2023 ssl/
+drwxrwxr-x  3 tomcat tomcat 4096 Feb 28  2023 webapps/
+lrwxrwxrwx  1 root   root     19 Jul 21  2022 work -> ../../cache/tomcat9/
+guy@thinkpad:/var/lib/tomcat9$ cd /var/lib/tomcat9/
+conf/    lib/     logs/    policy/  ssl/     webapps/ work/    
+guy@thinkpad:/var/lib/tomcat9$ cd /var/lib/tomcat9/w
+webapps/ work/    
+guy@thinkpad:/var/lib/tomcat9$ cd /var/lib/tomcat9/webapps/^C
+guy@thinkpad:/var/lib/tomcat9$ cd /var/lib/tomcat9/webapps
+guy@thinkpad:/var/lib/tomcat9/webapps$ ll
+total 47736
+drwxrwxr-x  3 tomcat tomcat     4096 Feb 28  2023 ./
+drwxr-xr-x  6 root   root       4096 Oct  4 13:01 ../
+drwxr-x--- 10 tomcat tomcat     4096 Feb 28  2023 ROOT/
+-rw-r--r--  1 root   root   48864180 Feb 28  2023 ROOT.war
+guy@thinkpad:/var/lib/tomcat9/webapps$ rm -rf ROOT ROOT.war
+rm: cannot remove 'ROOT': Permission denied
+rm: cannot remove 'ROOT.war': Permission denied
+guy@thinkpad:/var/lib/tomcat9/webapps$ sudo rm -rf ROOT ROOT.war
+guy@thinkpad:/var/lib/tomcat9/webapps$ ll
+total 8
+drwxrwxr-x 2 tomcat tomcat 4096 Oct 11 11:09 ./
+drwxr-xr-x 6 root   root   4096 Oct  4 13:01 ../
+guy@thinkpad:/var/lib/tomcat9/webapps$ cd /var/lib/tomcat9/conf/Catalina/localhost
+bash: cd: /var/lib/tomcat9/conf/Catalina/localhost: Permission denied
+guy@thinkpad:/var/lib/tomcat9/webapps$ sudo su
+root@thinkpad:/var/lib/tomcat9/webapps# cd /var/lib/tomcat9/conf/Catalina/localhost
+root@thinkpad:/var/lib/tomcat9/conf/Catalina/localhost# ll
+total 12
+drwxr-x--- 2 root tomcat 4096 Feb 22  2023 ./
+drwxrwxr-x 3 root tomcat 4096 Feb 22  2023 ../
+-rw-r--r-- 1 root tomcat 3641 Feb 28  2023 ROOT.xml
+root@thinkpad:/var/lib/tomcat9/conf/Catalina/localhost# cat ROOT.xml 
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <!-- database configurations -->
+    <Parameter name="JDBC.driver"   value="org.postgresql.Driver"/>
+    <Parameter name="JDBC.url"      value="jdbc:postgresql://localhost:5432/hmdm"/>
+    <Parameter name="JDBC.username" value="hmdm"/>
+    <Parameter name="JDBC.password" value="topsecret"/>
+
+    <!-- This directory is used to store uploaded app files, must be accessible for tomcat user -->
+    <Parameter name="files.directory" value="/var/lib/tomcat9/work/files"/>
+
+    <!-- URL used to open Headwind MDM control panel -->
+    <Parameter name="base.url" value="http://10.10.2.132:8080"/>
+
+    <!-- private / shared; shared can be used only in Enterprise solution -->
+    <Parameter name="usage.scenario" value="private" />
+
+    <!-- If set to 1, the device configuration request must be signed by a shared secret (setup in hash.secret and in the Android app) 
+         0 or empty value does not require request signature which is less secure -->
+    <Parameter name="secure.enrollment" value="0"/>
+    <!-- A shared secret between mobile app and control panel. 
+         Don't change this unless you know what you're doing -->
+    <Parameter name="hash.secret" value="12345"/>
+
+    <!-- This directory is used to store files by plugins, must be accessible for tomcat user -->
+    <Parameter name="plugins.files.directory" value="/var/lib/tomcat9/work/plugins"/>
+
+    <!-- Configuration for logging plugin, do not change this -->
+    <Parameter name="plugin.devicelog.persistence.config.class" value="com.hmdm.plugins.devicelog.persistence.postgres.DeviceLogPostgresPersistenceConfiguration"/>
+
+    <!-- Don't change this -->
+    <Parameter name="role.orgadmin.id" value="2"/>
+
+    <!-- Swagger Docs UI location -->
+    <Parameter name="swagger.host" value="10.10.2.132:8080"/>
+    <Parameter name="swagger.base.path" value="/rest"/>
+
+    <Parameter name="initialization.completion.signal.file" value="/var/lib/tomcat9/work/hmdm_install_flag"/>
+
+    <Parameter name="log4j.config" value="file:///var/lib/tomcat9/work/log4j-hmdm.xml"/>
+
+    <Parameter name="aapt.command" value="aapt"/>
+
+    <!-- MQTT notification service parameters -->
+    <Parameter name="mqtt.server.uri" value="10.10.2.132:31000"/>
+
+    <!-- Optional tag for delaying MQTT messages in milliseconds
+     to avoid congestion when all devices are updating configuration at the same time -->
+    <!-- <Parameter name="mqtt.message.delay" value="100"/> -->
+
+    <!-- Fast device search by last characters, here's the length -->
+    <Parameter name="device.fast.search.chars" value="5"/>
+
+    <!-- Optional tag for MQTT authentication for more security
+         (supported by Headwind MDM launcher v5.05 and above) -->
+    <!-- <Parameter name="mqtt.auth" value="1"/> -->
+
+    <!-- If you have any reverse proxies, specify them here (IP addresses, 
+    comma-separated) for correct logging of IP addresses -->
+    <!-- <Parameter name="proxy.addresses" value="192.168.1.101"/> -->
+
+    <!-- Name of the HTTP header containing the device IP address.
+    Defaults to X-Real-IP -->
+    <!-- <Parameter name="proxy.ip.header" value="X-Forwarded-For"/> -->
+
+    <!-- Email parameters are necessary for password recovery -->
+    <Parameter name="smtp.host" value=""/>
+    <Parameter name="smtp.port" value=""/>
+    <Parameter name="smtp.ssl" value="0"/>
+    <Parameter name="smtp.starttls" value="0"/>
+    <Parameter name="smtp.username" value=""/>
+    <Parameter name="smtp.password" value=""/>
+    <Parameter name="smtp.from" value=""/>
+
+</Context>
+root@thinkpad:/var/lib/tomcat9/conf/Catalina/localhost# rm ROOT.xml 
+root@thinkpad:/var/lib/tomcat9/conf/Catalina/localhost# service postgresql restart
+root@thinkpad:/var/lib/tomcat9/conf/Catalina/localhost# 
+exit
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+su: Authentication failure
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+su: Authentication failure
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+su: Authentication failure
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+su: Authentication failure
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+su: Authentication failure
+guy@thinkpad:/var/lib/tomcat9/webapps$ su postgres
+Password: 
+guy@thinkpad:/var/lib/tomcat9/webapps$ postgres
+Command 'postgres' not found, did you mean:
+  command 'postgrey' from deb postgrey (1.36-5.2)
+Try: sudo apt install <deb name>
+guy@thinkpad:/var/lib/tomcat9/webapps$ cd /etc/passwd
+bash: cd: /etc/passwd: Not a directory
+guy@thinkpad:/var/lib/tomcat9/webapps$ cd /etc/p
+pam.d/             perl/              pm/                postgresql/        ppp/               pulse/             python3/           
+pcmcia/            pki/               polkit-1/          postgresql-common/ profile.d/         python2.7/         python3.10/        
+guy@thinkpad:/var/lib/tomcat9/webapps$ cd /etc/p
+pam.d/             perl/              pm/                postgresql/        ppp/               pulse/             python3/           
+pcmcia/            pki/               polkit-1/          postgresql-common/ profile.d/         python2.7/         python3.10/        
+guy@thinkpad:/var/lib/tomcat9/webapps$ sudo -u postgres psql postgres
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# drop database hmdm
+postgres-# \q
+guy@thinkpad:/var/lib/tomcat9/webapps$ sudo -u postgres psql postgres
+psql (14.9 (Ubuntu 14.9-0ubuntu0.22.04.1))
+Type "help" for help.
+
+postgres=# drop database hmdm
+postgres-# drop database hmdm
+postgres-# show data
+
+postgres-# show data
+
+postgres-# show databases;
+ERROR:  syntax error at or near "drop"
+LINE 2: drop database hmdm
+        ^
+postgres=# drop database hmdm;
+DROP DATABASE
+postgres=# drop database hmdm;
+ERROR:  database "hmdm" does not exist
+postgres=# show databases;
+ERROR:  unrecognized configuration parameter "databases"
+postgres=# show database;
+ERROR:  unrecognized configuration parameter "database"
+postgres=# show database;^C
+postgres=# \q
+guy@thinkpad:/var/lib/tomcat9/webapps$ cd /opt/hmdm
+guy@thinkpad:/opt/hmdm$ ll
+total 16
+drwxr-xr-x 2 root root 4096 Feb 22  2023 ./
+drwxr-xr-x 7 root root 4096 Aug 30 09:49 ../
+-rwxr-xr-x 1 root root  182 Feb 22  2023 iptables-tomcat.sh*
+-rwxr-xr-x 1 root root 2341 Feb 28  2023 letsencrypt-ssl.sh*
+guy@thinkpad:/opt/hmdm$ cd /var/lib/tomcat9/conf/Catalina/localhost
+bash: cd: /var/lib/tomcat9/conf/Catalina/localhost: Permission denied
+guy@thinkpad:/opt/hmdm$ cd
+guy@thinkpad:~$ rm -rf /opt/hmdm
+rm: cannot remove '/opt/hmdm/letsencrypt-ssl.sh': Permission denied
+rm: cannot remove '/opt/hmdm/iptables-tomcat.sh': Permission denied
+guy@thinkpad:~$ sudo rm -rf /opt/hmdm
+guy@thinkpad:~$ telnet localhost 8080
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+
+Connection closed by foreign host.
+guy@thinkpad:~$ telnet localhost 8080
+Trying 127.0.0.1...
+Connected to localhost.
+Escape character is '^]'.
+^]
+telnet>             
+Connection closed by foreign host.
+guy@thinkpad:~$ cd /opt/tomcat
+guy@thinkpad:/opt/tomcat$ ./bin/shutdown.sh
+bash: ./bin/shutdown.sh: Permission denied
+guy@thinkpad:/opt/tomcat$ sudo ./bin/shutdown.sh
+Using CATALINA_BASE:   /opt/tomcat
+Using CATALINA_HOME:   /opt/tomcat
+Using CATALINA_TMPDIR: /opt/tomcat/temp
+Using JRE_HOME:        /usr
+Using CLASSPATH:       /opt/tomcat/bin/bootstrap.jar:/opt/tomcat/bin/tomcat-juli.jar
+Using CATALINA_OPTS:   
+Oct 11, 2023 11:26:12 AM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.
+Oct 11, 2023 11:26:12 AM org.apache.catalina.startup.Catalina stopServer
+SEVERE: Error stopping Catalina
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.base/java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.base/java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:412)
+	at java.base/java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:255)
+	at java.base/java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:237)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.base/java.net.Socket.connect(Socket.java:609)
+	at java.base/java.net.Socket.connect(Socket.java:558)
+	at java.base/java.net.Socket.<init>(Socket.java:454)
+	at java.base/java.net.Socket.<init>(Socket.java:231)
+	at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:692)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:393)
+	at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:483)
+
+guy@thinkpad:/opt/tomcat$ sudo systemctl stop tomcat
+Failed to stop tomcat.service: Unit tomcat.service not loaded.
+guy@thinkpad:/opt/tomcat$ sudo systemctl stop tomcat9.service 
+guy@thinkpad:/opt/tomcat$ sudo systemctl stop tomcat9.service
