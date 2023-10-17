@@ -1,0 +1,384 @@
+guy@thinkpad:~$ sudo docker pull jenkins/jenkins
+Using default tag: latest
+latest: Pulling from jenkins/jenkins
+167b8a53ca45: Pull complete 
+2c4f61e72060: Pull complete 
+2c0c73a49e7f: Pull complete 
+150c07822e7f: Pull complete 
+4d2d32cb0e0b: Pull complete 
+9a1930d125a1: Pull complete 
+bef5ee484ca6: Pull complete 
+2904054a163d: Pull complete 
+758ce75133c9: Pull complete 
+5776043f9d38: Pull complete 
+a0d252a3864b: Pull complete 
+f937d7581657: Pull complete 
+Digest: sha256:9249005bbbdeb6cc5c8e7ee39648c08d8bba7e7eb233488e66738ce4ea21cd01
+Status: Downloaded newer image for jenkins/jenkins:latest
+docker.io/jenkins/jenkins:latest
+guy@thinkpad:~$ cd Documents/
+Drafts/           GitHub/           GitHub-probeplus/ PlantUML/         
+guy@thinkpad:~$ cd Documents/; mkdir -p Docker/Jenkins
+guy@thinkpad:~/Documents$ cd Docker/Jenkins/
+guy@thinkpad:~/Documents/Docker/Jenkins$ pwd
+/home/guy/Documents/Docker/Jenkins
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 4000:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+Running from: /usr/share/jenkins/jenkins.war
+webroot: /var/jenkins_home/war
+2023-10-11 05:20:12.065+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2023-10-11 05:20:12.679+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2023-10-11 05:20:12.762+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-10.0.16; built: 2023-08-25T19:11:25.422Z; git: a2735a9ae9d1afc124974253f1e223e5678be1f4; jvm 17.0.8.1+1
+2023-10-11 05:20:12.956+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2023-10-11 05:20:13.003+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2023-10-11 05:20:13.466+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+2023-10-11 05:20:13.562+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@77eb5790{Jenkins v2.427,/,file:///var/jenkins_home/war/,AVAILABLE}{/var/jenkins_home/war}
+2023-10-11 05:20:13.572+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@5e01a982{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-10-11 05:20:13.581+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started Server@784b990c{STARTING}[10.0.16,sto=0] @1934ms
+2023-10-11 05:20:13.582+0000 [id=27]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2023-10-11 05:20:13.775+0000 [id=35]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-10-11 05:20:13.783+0000 [id=39]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-10-11 05:20:14.293+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-10-11 05:20:14.297+0000 [id=33]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-10-11 05:20:14.301+0000 [id=33]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-10-11 05:20:14.425+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-10-11 05:20:14.425+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-10-11 05:20:14.425+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-10-11 05:20:14.426+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-10-11 05:20:14.441+0000 [id=61]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-10-11 05:20:14.570+0000 [id=61]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:218)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:213)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2094)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2065)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-11 05:20:14.571+0000 [id=61]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'Connection refused' at the attempt #1 to do the action check updates server
+2023-10-11 05:20:14.573+0000 [id=61]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-10-11 05:20:14.574+0000 [id=61]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: ConnectException: Connection refused
+2023-10-11 05:20:14.729+0000 [id=44]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+da13f5bca05f4676bb3a0251c8e53da9
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2023-10-11 05:20:14.730+0000 [id=44]	WARNING	hudson.model.UpdateCenter#updateDefaultSite: Upgrading Jenkins. Failed to update the default Update Site 'default'. Plugin upgrades may fail.
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:218)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:213)
+	at hudson.model.UpdateCenter.updateDefaultSite(UpdateCenter.java:2697)
+	at jenkins.install.SetupWizard.init(SetupWizard.java:209)
+	at jenkins.install.InstallState$InitialSecuritySetup.initializeState(InstallState.java:182)
+	at jenkins.model.Jenkins.setInstallState(Jenkins.java:1143)
+	at jenkins.install.InstallUtil.proceedToNextStateFrom(InstallUtil.java:99)
+	at jenkins.install.InstallState$Unknown.initializeState(InstallState.java:88)
+	at jenkins.model.Jenkins$15.run(Jenkins.java:3577)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:177)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:305)
+	at jenkins.model.Jenkins$5.runTask(Jenkins.java:1170)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:221)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:120)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:68)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-11 05:20:14.731+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-10-11 05:20:14.738+0000 [id=26]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+^C2023-10-11 05:27:23.822+0000 [id=28]	INFO	winstone.Logger#logInternal: JVM is terminating. Shutting down Jetty
+2023-10-11 05:27:23.823+0000 [id=28]	INFO	org.eclipse.jetty.server.Server#doStop: Stopped Server@784b990c{STOPPING}[10.0.16,sto=0]
+2023-10-11 05:27:23.829+0000 [id=28]	INFO	o.e.j.server.AbstractConnector#doStop: Stopped ServerConnector@5e01a982{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-10-11 05:27:23.830+0000 [id=28]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Stopping Jenkins
+2023-10-11 05:27:23.832+0000 [id=28]	INFO	jenkins.model.Jenkins$16#onAttained: Started termination
+2023-10-11 05:27:23.838+0000 [id=28]	INFO	jenkins.model.Jenkins$16#onAttained: Completed termination
+2023-10-11 05:27:23.838+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+2023-10-11 05:27:23.887+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+2023-10-11 05:27:23.887+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+2023-10-11 05:27:23.891+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+2023-10-11 05:27:23.891+0000 [id=28]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Jenkins stopped
+2023-10-11 05:27:23.893+0000 [id=28]	INFO	o.e.j.s.handler.ContextHandler#doStop: Stopped w.@77eb5790{Jenkins v2.427,/,null,STOPPED}{/var/jenkins_home/war}
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker images -a
+REPOSITORY        TAG       IMAGE ID       CREATED        SIZE
+jenkins/jenkins   latest    8bf73800f278   16 hours ago   476MB
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED         STATUS                        PORTS     NAMES
+6307c6a9c00c   jenkins/jenkins   "/usr/bin/tini -- /u…"   8 minutes ago   Exited (130) 47 seconds ago             compassionate_lichterman
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 8080:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+docker: Error response from daemon: driver failed programming external connectivity on endpoint naughty_hugle (99ccc7ac55c2e76a79018118517e596908d179874bddde3a8f8e8a9dd3186351): Error starting userland proxy: listen tcp4 0.0.0.0:8080: bind: address already in use.
+ERRO[0000] error waiting for container:                 
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 8080:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+docker: Error response from daemon: driver failed programming external connectivity on endpoint agitated_leakey (7726a2f03f47962cedfb86f8de2082eaaa6bfae80218f93a4c2a5ea5dfcfcb22): Error starting userland proxy: listen tcp4 0.0.0.0:50000: bind: address already in use.
+ERRO[0000] error waiting for container:                 
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker rm 630
+630
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 8080:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+docker: Error response from daemon: driver failed programming external connectivity on endpoint xenodochial_greider (b9e6d818b39c01b724d7f68e4a174849a465126ddb88a6eef30b6e41d8d0b448): Error starting userland proxy: listen tcp4 0.0.0.0:50000: bind: address already in use.
+ERRO[0000] error waiting for container:                 
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker ps -a
+CONTAINER ID   IMAGE             COMMAND                  CREATED              STATUS    PORTS     NAMES
+28799d1a789b   jenkins/jenkins   "/usr/bin/tini -- /u…"   43 seconds ago       Created             xenodochial_greider
+478da34e8ad2   jenkins/jenkins   "/usr/bin/tini -- /u…"   About a minute ago   Created             agitated_leakey
+4a5bebe5b3f6   jenkins/jenkins   "/usr/bin/tini -- /u…"   25 minutes ago       Created             naughty_hugle
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker images -a
+REPOSITORY        TAG       IMAGE ID       CREATED        SIZE
+jenkins/jenkins   latest    8bf73800f278   16 hours ago   476MB
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker ps -a | grep -v 'CONTAINER' | awk '{print $1}' | xargs -r sudo docker stop | xargs -r sudo docker rm;
+28799d1a789b
+478da34e8ad2
+4a5bebe5b3f6
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 8080:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
+Running from: /usr/share/jenkins/jenkins.war
+webroot: /var/jenkins_home/war
+2023-10-11 06:01:01.100+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+2023-10-11 06:01:01.179+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+2023-10-11 06:01:01.235+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-10.0.16; built: 2023-08-25T19:11:25.422Z; git: a2735a9ae9d1afc124974253f1e223e5678be1f4; jvm 17.0.8.1+1
+2023-10-11 06:01:01.409+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+2023-10-11 06:01:01.452+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: Session workerName=node0
+2023-10-11 06:01:01.858+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+2023-10-11 06:01:01.965+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@a619c2{Jenkins v2.427,/,file:///var/jenkins_home/war/,AVAILABLE}{/var/jenkins_home/war}
+2023-10-11 06:01:01.976+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@1329eff{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-10-11 06:01:01.988+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started Server@be35cd9{STARTING}[10.0.16,sto=0] @1313ms
+2023-10-11 06:01:01.989+0000 [id=27]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+2023-10-11 06:01:02.141+0000 [id=34]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-10-11 06:01:02.187+0000 [id=36]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-10-11 06:01:02.733+0000 [id=47]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-10-11 06:01:02.737+0000 [id=38]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-10-11 06:01:02.741+0000 [id=44]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-10-11 06:01:02.950+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-10-11 06:01:02.951+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-10-11 06:01:02.951+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-10-11 06:01:02.952+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-10-11 06:01:02.977+0000 [id=61]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-10-11 06:01:02.983+0000 [id=42]	INFO	jenkins.install.SetupWizard#init: 
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+Jenkins initial setup is required. An admin user has been created and a password generated.
+Please use the following password to proceed to installation:
+
+da13f5bca05f4676bb3a0251c8e53da9
+
+This may also be found at: /var/jenkins_home/secrets/initialAdminPassword
+
+*************************************************************
+*************************************************************
+*************************************************************
+
+2023-10-11 06:01:03.119+0000 [id=42]	WARNING	hudson.model.UpdateCenter#updateDefaultSite: Upgrading Jenkins. Failed to update the default Update Site 'default'. Plugin upgrades may fail.
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:218)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:213)
+	at hudson.model.UpdateCenter.updateDefaultSite(UpdateCenter.java:2697)
+	at jenkins.install.SetupWizard.init(SetupWizard.java:209)
+	at jenkins.install.InstallState$InitialSecuritySetup.initializeState(InstallState.java:182)
+	at jenkins.model.Jenkins.setInstallState(Jenkins.java:1143)
+	at jenkins.install.InstallUtil.proceedToNextStateFrom(InstallUtil.java:99)
+	at jenkins.install.InstallState$Unknown.initializeState(InstallState.java:88)
+	at jenkins.model.Jenkins$15.run(Jenkins.java:3577)
+	at org.jvnet.hudson.reactor.TaskGraphBuilder$TaskImpl.run(TaskGraphBuilder.java:177)
+	at org.jvnet.hudson.reactor.Reactor.runTask(Reactor.java:305)
+	at jenkins.model.Jenkins$5.runTask(Jenkins.java:1170)
+	at org.jvnet.hudson.reactor.Reactor$2.run(Reactor.java:221)
+	at org.jvnet.hudson.reactor.Reactor$Node.run(Reactor.java:120)
+	at jenkins.security.ImpersonatingExecutorService$1.run(ImpersonatingExecutorService.java:68)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-11 06:01:03.119+0000 [id=61]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:218)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:213)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2094)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2065)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-11 06:01:03.120+0000 [id=61]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'Connection refused' at the attempt #1 to do the action check updates server
+2023-10-11 06:01:03.121+0000 [id=61]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-10-11 06:01:03.123+0000 [id=61]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: ConnectException: Connection refused
+2023-10-11 06:01:03.144+0000 [id=46]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-10-11 06:01:03.207+0000 [id=26]	INFO	hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+2023-10-11 06:41:03.943+0000 [id=81]	INFO	hudson.PluginManager#install: Starting installation of a batch of 0 plugins plus their dependencies
+2023-10-11 06:41:03.946+0000 [id=86]	INFO	h.m.UpdateCenter$CompleteBatchJob#run: Completing installing of plugin batch…
+2023-10-11 06:41:03.964+0000 [id=88]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+2023-10-11 06:41:03.964+0000 [id=93]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+2023-10-11 06:41:03.965+0000 [id=98]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+2023-10-11 06:41:03.966+0000 [id=102]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+2023-10-11 06:41:03.966+0000 [id=90]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+2023-10-11 06:41:03.967+0000 [id=94]	INFO	jenkins.InitReactorRunner$1#onAttained: System config loaded
+2023-10-11 06:41:03.967+0000 [id=101]	INFO	jenkins.InitReactorRunner$1#onAttained: System config adapted
+2023-10-11 06:41:03.967+0000 [id=88]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+2023-10-11 06:41:03.968+0000 [id=90]	INFO	jenkins.InitReactorRunner$1#onAttained: Configuration for all jobs updated
+2023-10-11 06:41:03.968+0000 [id=100]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+2023-10-11 06:41:03.969+0000 [id=86]	INFO	h.m.UpdateCenter$CompleteBatchJob#run: Completed installation of 0 plugins in 24 ms
+2023-10-12 04:22:55.158+0000 [id=18]	WARNING	o.e.j.s.session.SessionHandler#getSession: Invalidating session node01l8j785rhqvzskb3ml9ynwv2m2 found to be expired when requested
+java.lang.IllegalStateException
+	at org.eclipse.jetty.server.session.Session.beginInvalidate(Session.java:912)
+	at org.eclipse.jetty.server.session.Session.invalidate(Session.java:854)
+	at org.eclipse.jetty.server.session.SessionHandler.getSession(SessionHandler.java:897)
+	at org.eclipse.jetty.server.session.SessionHandler.getHttpSession(SessionHandler.java:530)
+	at org.eclipse.jetty.server.session.SessionHandler.checkRequestedSessionId(SessionHandler.java:1619)
+	at org.eclipse.jetty.server.session.SessionHandler.doScope(SessionHandler.java:1492)
+	at org.eclipse.jetty.server.handler.ScopedHandler.nextScope(ScopedHandler.java:174)
+	at org.eclipse.jetty.server.handler.ContextHandler.doScope(ContextHandler.java:1306)
+	at org.eclipse.jetty.server.handler.ScopedHandler.handle(ScopedHandler.java:129)
+	at org.eclipse.jetty.server.handler.HandlerWrapper.handle(HandlerWrapper.java:122)
+	at org.eclipse.jetty.server.Server.handle(Server.java:563)
+	at org.eclipse.jetty.server.HttpChannel$RequestDispatchable.dispatch(HttpChannel.java:1598)
+	at org.eclipse.jetty.server.HttpChannel.dispatch(HttpChannel.java:753)
+	at org.eclipse.jetty.server.HttpChannel.handle(HttpChannel.java:501)
+	at org.eclipse.jetty.server.HttpConnection.onFillable(HttpConnection.java:282)
+	at org.eclipse.jetty.io.AbstractConnection$ReadCallback.succeeded(AbstractConnection.java:314)
+	at org.eclipse.jetty.io.FillInterest.fillable(FillInterest.java:100)
+	at org.eclipse.jetty.io.SelectableChannelEndPoint$1.run(SelectableChannelEndPoint.java:53)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.runTask(AdaptiveExecutionStrategy.java:421)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.consumeTask(AdaptiveExecutionStrategy.java:390)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.tryProduce(AdaptiveExecutionStrategy.java:277)
+	at org.eclipse.jetty.util.thread.strategy.AdaptiveExecutionStrategy.run(AdaptiveExecutionStrategy.java:199)
+	at org.eclipse.jetty.util.thread.ReservedThreadExecutor$ReservedThread.run(ReservedThreadExecutor.java:411)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool.runJob(QueuedThreadPool.java:969)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.doRunJob(QueuedThreadPool.java:1194)
+	at org.eclipse.jetty.util.thread.QueuedThreadPool$Runner.run(QueuedThreadPool.java:1149)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-16 09:17:56.085+0000 [id=337]	INFO	hudson.util.Retrier#start: Attempt #1 to do the action check updates server
+2023-10-16 09:17:56.134+0000 [id=337]	INFO	hudson.util.Retrier#start: The attempt #1 to do the action check updates server failed with an allowed exception:
+java.net.ConnectException: Connection refused
+	at java.base/sun.nio.ch.Net.pollConnect(Native Method)
+	at java.base/sun.nio.ch.Net.pollConnectNow(Net.java:672)
+	at java.base/sun.nio.ch.NioSocketImpl.timedFinishConnect(NioSocketImpl.java:547)
+	at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:602)
+	at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+	at java.base/java.net.Socket.connect(Socket.java:633)
+	at java.base/sun.security.ssl.SSLSocketImpl.connect(SSLSocketImpl.java:304)
+	at java.base/sun.net.NetworkClient.doConnect(NetworkClient.java:178)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:533)
+	at java.base/sun.net.www.http.HttpClient.openServer(HttpClient.java:638)
+	at java.base/sun.net.www.protocol.https.HttpsClient.<init>(HttpsClient.java:266)
+	at java.base/sun.net.www.protocol.https.HttpsClient.New(HttpsClient.java:380)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.getNewHttpClient(AbstractDelegateHttpsURLConnection.java:193)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect0(HttpURLConnection.java:1242)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.plainConnect(HttpURLConnection.java:1128)
+	at java.base/sun.net.www.protocol.https.AbstractDelegateHttpsURLConnection.connect(AbstractDelegateHttpsURLConnection.java:179)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream0(HttpURLConnection.java:1665)
+	at java.base/sun.net.www.protocol.http.HttpURLConnection.getInputStream(HttpURLConnection.java:1589)
+	at java.base/sun.net.www.protocol.https.HttpsURLConnectionImpl.getInputStream(HttpsURLConnectionImpl.java:224)
+	at hudson.model.DownloadService.loadJSON(DownloadService.java:122)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:218)
+	at hudson.model.UpdateSite.updateDirectlyNow(UpdateSite.java:213)
+	at hudson.PluginManager.checkUpdatesServer(PluginManager.java:2094)
+	at hudson.util.Retrier.start(Retrier.java:62)
+	at hudson.PluginManager.doCheckUpdatesServer(PluginManager.java:2065)
+	at jenkins.DailyCheck.execute(DailyCheck.java:93)
+	at hudson.model.AsyncPeriodicWork.lambda$doRun$0(AsyncPeriodicWork.java:102)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+2023-10-16 09:17:56.134+0000 [id=337]	INFO	hudson.util.Retrier#start: Calling the listener of the allowed exception 'Connection refused' at the attempt #1 to do the action check updates server
+2023-10-16 09:17:56.135+0000 [id=337]	INFO	hudson.util.Retrier#start: Attempted the action check updates server for 1 time(s) with no success
+2023-10-16 09:17:56.135+0000 [id=337]	SEVERE	hudson.PluginManager#doCheckUpdatesServer: Error checking update sites for 1 attempt(s). Last exception was: ConnectException: Connection refused
+^C2023-10-17 11:43:14.665+0000 [id=28]	INFO	winstone.Logger#logInternal: JVM is terminating. Shutting down Jetty
+2023-10-17 11:43:14.666+0000 [id=28]	INFO	org.eclipse.jetty.server.Server#doStop: Stopped Server@be35cd9{STOPPING}[10.0.16,sto=0]
+2023-10-17 11:43:14.672+0000 [id=28]	INFO	o.e.j.server.AbstractConnector#doStop: Stopped ServerConnector@1329eff{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+2023-10-17 11:43:14.675+0000 [id=28]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Stopping Jenkins
+2023-10-17 11:43:14.680+0000 [id=28]	INFO	jenkins.model.Jenkins$16#onAttained: Started termination
+2023-10-17 11:43:14.690+0000 [id=28]	INFO	jenkins.model.Jenkins$16#onAttained: Completed termination
+2023-10-17 11:43:14.690+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpDisconnectComputers: Starting node disconnection
+2023-10-17 11:43:14.769+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpShutdownPluginManager: Stopping plugin manager
+2023-10-17 11:43:14.769+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpPersistQueue: Persisting build queue
+2023-10-17 11:43:14.775+0000 [id=28]	INFO	jenkins.model.Jenkins#_cleanUpAwaitDisconnects: Waiting for node disconnection completion
+2023-10-17 11:43:14.775+0000 [id=28]	INFO	hudson.lifecycle.Lifecycle#onStatusUpdate: Jenkins stopped
+2023-10-17 11:43:14.791+0000 [id=28]	INFO	o.e.j.s.handler.ContextHandler#doStop: Stopped w.@a619c2{Jenkins v2.427,/,null,STOPPED}{/var/jenkins_home/war}
+guy@thinkpad:~/Documents/Docker/Jenkins$ sudo docker run -p 8080:8080 -p 50000:50000 -v /home/guy/Documents/Docker/Jenkins:/var/jenkins_home jenkins/jenkins
